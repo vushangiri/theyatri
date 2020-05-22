@@ -1,0 +1,44 @@
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Covid 19</h4>
+        </div>
+        <div class="modal-body">
+
+            <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">Country</th>
+                    <th scope="col">Confirmed</th>
+                    <th scope="col">Deaths</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Nepal</th>
+                    <td>{{covid_data.confirmed}}</td>
+                    <td>{{covid_data.deaths}}</td>
+                  </tr>
+                </tbody>
+              </table>
+              <br>
+              <h5>Want To Know about other Countries,Enter Country Code:</h5>
+              <div class="col-lg-12 text-center mt-5"></div>
+              <div class="col-md-4 offset-md-4 mt-5 border border-success pt-3">
+                  <form action="covid" method="POST">
+                      {%csrf_token%}
+                          <input  type="text" name="covid_data" class="form-control" placeholder="Country Code" >
+                          <button type="submit" class="btn btn-primary">SUBMIT</button>
+                    </form>
+              </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>

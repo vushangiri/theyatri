@@ -1,0 +1,51 @@
+{% extends 'accounts/base.html' %}
+{% load static %}
+{% block title %}Register{% endblock %}
+{% block link %}
+<!-- MATERIAL DESIGN ICONIC FONT -->
+<link rel="stylesheet" href="{% static 'accounts/register/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css' %}">
+
+<!-- STYLE CSS -->
+<link rel="stylesheet" href="{% static 'accounts/register/css/style.css' %}">
+{% endblock %}
+
+{% block togo %}
+<div class="inner">
+	<div class="image-holder">
+		<img src="{% static 'accounts/images/registration-form-1.jpg' %}" alt="">
+	</div>
+	<form action="register" method="POST">
+	{% csrf_token %}
+		<h3>Registration Form</h3>
+		<div class="form-group">
+			<input type="text" placeholder="First Name" class="form-control" name="first_name" required="required">
+			<input type="text" placeholder="Last Name" class="form-control" name="last_name" required="required">
+		</div>
+		<div class="form-wrapper">
+			<input type="text" placeholder="Username" class="form-control" name="username" required="required">
+			<i class="zmdi zmdi-account"></i>
+		</div>
+		<div class="form-wrapper">
+			<input type="text" placeholder="Email Address" class="form-control" name="email" required="required">
+			<i class="zmdi zmdi-email"></i>
+		</div>
+		
+		<div class="form-wrapper">
+			<input type="password" placeholder="Password" class="form-control" name="password1" required="required">
+			<i class="zmdi zmdi-lock"></i>
+		</div>
+		<div class="form-wrapper">
+			<input type="password" placeholder="Confirm Password" class="form-control" name="password2" required="required">
+			<i class="zmdi zmdi-lock"></i>
+		</div>
+		<button>Register
+			<i class="zmdi zmdi-arrow-right"></i>
+		</button>
+	</form>
+</div>
+
+
+{% endblock %}
+{% block content %}
+{% include 'modules/pop_dest.html' %}
+{% endblock %}
